@@ -1,0 +1,172 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "OpenApi Documentation",
+        "description": "Документация для использования автомобилей пользователями",
+        "contact": {
+            "email": "hello@example.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://car_users.loc/api/V1",
+            "description": "Основной API"
+        }
+    ],
+    "paths": {
+        "/cars": {
+            "get": {
+                "summary": "Получить список всех автомобилей",
+                "description": "Получаем список всех автомобилей",
+                "operationId": "82993a30aef8078da018b19c43cb7352",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "description": "Пишем новый автомобиль в базу",
+                "operationId": "cfc7c7754e6c2a97b71a0214aab1d2af",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/cars/$id": {
+            "get": {
+                "description": "Просматривам выбранный автомобиль",
+                "operationId": "2fff534540668e9524c768f52766f6bc",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/cars/$car": {
+            "put": {
+                "description": "Редактируем выбранный автомобиль",
+                "operationId": "90074203e945c68d1aad7a101dad5d08",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Удаляем выбранного пользователя",
+                "operationId": "1c8513dfe3f8cdc7d612bf2f8cc04ed6",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/users": {
+            "get": {
+                "summary": "Получить список всех пользователей",
+                "description": "Получаем список всех пользователей",
+                "operationId": "47249454f1cdb4ad92ff4dd2abad233f",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "post": {
+                "description": "Пишем нового пользователя в базу",
+                "operationId": "381804010d0bc76cac24bab8ac5f1707",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/users/$id": {
+            "get": {
+                "description": "Просматривам выбранного пользователя",
+                "operationId": "3d28cd988654b7e1af05877cf74f76f2",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        },
+        "/users/$user": {
+            "put": {
+                "description": "Редактируем выбранного пользователя",
+                "operationId": "16c449917ec922736047a032b7424585",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            },
+            "delete": {
+                "description": "Удаляем выбранного пользователя",
+                "operationId": "fd1abf0c2b22ebfb07793440ddc56573",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Car": {
+                "title": "Car",
+                "description": "Car model",
+                "properties": {
+                    "fillable": {
+                        "title": "CarData",
+                        "description": "Название автомобиля и,всязанное с ним, id пользователя могут быть записано в БД",
+                        "example": "Шкода фабия - 5"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "Car"
+                }
+            },
+            "User": {
+                "title": "User",
+                "description": "User model",
+                "properties": {
+                    "": {
+                        "title": "Relationship",
+                        "description": "Связь один к одному, одному пользователю может одномоментно принадлежать только одна машина",
+                        "example": "Иванов Иван Иванович - Шкода фабия"
+                    },
+                    "fillable": {
+                        "title": "UserName",
+                        "description": "ФИО пользователя может быть записано в БД",
+                        "example": "Иванов Иван Иванович"
+                    }
+                },
+                "type": "object",
+                "xml": {
+                    "name": "User"
+                }
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "User",
+            "description": "Работа с пользователями"
+        },
+        {
+            "name": "Car",
+            "description": "Работа с автомобилями"
+        }
+    ]
+}

@@ -10,9 +10,16 @@ use Illuminate\Http\Request;
 class CarController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     *  @OA\Get(
+     *      path="/cars",
+     *      summary="Получить список всех автомобилей",
+     *      description="Получаем список всех автомобилей",
+     * 
+     *  @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *  )
      */
     public function index()
     {
@@ -20,10 +27,15 @@ class CarController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     *  @OA\Post(
+     *      path="/cars",
+     *      description="Пишем новый автомобиль в базу",
+     * 
+     *  @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *  )
      */
     public function store(Request $request)
     {
@@ -31,10 +43,15 @@ class CarController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     *  @OA\Get(
+     *      path="/cars/$id",
+     *      description="Просматривам выбранный автомобиль",
+     * 
+     *  @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *  )
      */
     public function show($id)
     {
@@ -42,11 +59,15 @@ class CarController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Car $car
-     * @return \Illuminate\Http\Response
+     *  @OA\Put(
+     *      path="/cars/$car",
+     *      description="Редактируем выбранный автомобиль",
+     * 
+     *  @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *  )
      */
     public function update(Request $request, Car $car)
     {
@@ -54,10 +75,15 @@ class CarController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Car $car
-     * @return \Illuminate\Http\Response
+     *  @OA\Delete(
+     *      path="/cars/$car",
+     *      description="Удаляем выбранного пользователя",
+     * 
+     *  @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *  )
      */
     public function destroy(Car $car)
     {

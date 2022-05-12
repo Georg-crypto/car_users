@@ -9,10 +9,18 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     *  @OA\Get(
+     *      path="/users",
+     *      summary="Получить список всех пользователей",
+     *      description="Получаем список всех пользователей",
+     * 
+     *  @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *  )
      */
     public function index()
     {
@@ -20,10 +28,15 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     *  @OA\Post(
+     *      path="/users",
+     *      description="Пишем нового пользователя в базу",
+     * 
+     *  @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *  )
      */
     public function store(Request $request)
     {
@@ -31,10 +44,15 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     *  @OA\Get(
+     *      path="/users/$id",
+     *      description="Просматривам выбранного пользователя",
+     * 
+     *  @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),    
+     *  )
      */
     public function show($id)
     {
@@ -42,11 +60,15 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\User $user
-     * @return \Illuminate\Http\Response
+     *  @OA\Put(
+     *      path="/users/$user",
+     *      description="Редактируем выбранного пользователя",
+     * 
+     *  @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *  )
      */
     public function update(Request $request, User $user)
     {
@@ -54,10 +76,15 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\User $user
-     * @return \Illuminate\Http\Response
+     *  @OA\Delete(
+     *      path="/users/$user",
+     *      description="Удаляем выбранного пользователя",
+     * 
+     *  @OA\Response(
+     *          response=200,
+     *          description="Successful operation",
+     *       ),
+     *  )
      */
     public function destroy(User $user)
     {
